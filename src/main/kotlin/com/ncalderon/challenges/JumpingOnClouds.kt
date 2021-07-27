@@ -32,6 +32,33 @@ class JumpingOnClouds {
      *  4
      */
     fun jumpingOnClouds(c: Array<Int>): Int {
-        TODO()
+        var jumps = 0
+        var currentCloud = 0
+        while (currentCloud < c.size){
+            when {
+                isPossibleCloud(currentCloud+2, c) -> {
+                    currentCloud += 2
+                    jumps++
+                }
+                isPossibleCloud(currentCloud+1, c) -> {
+                    currentCloud += 1
+                    jumps++
+                }
+                else -> {
+                    currentCloud += 1
+                }
+            }
+        }
+        return jumps
+    }
+
+    private fun isPossibleCloud(cloudIndex: Int, c: Array<Int>): Boolean {
+        if (cloudIndex >= c.size)
+            return false
+
+        if (c[cloudIndex] == 0)
+            return true;
+
+        return false
     }
 }
