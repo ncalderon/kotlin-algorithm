@@ -1,5 +1,6 @@
-package com.ncalderon.challenges
+package com.ncalderon.challenges.warnup
 
+import com.ncalderon.challenges.warnup.JumpingOnClouds
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

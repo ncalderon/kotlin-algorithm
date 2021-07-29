@@ -1,5 +1,6 @@
-package com.ncalderon.challenges
+package com.ncalderon.challenges.warnup
 
+import com.ncalderon.challenges.warnup.CountingValleys
 import org.junit.After
 import org.junit.Before
 import org.junit.Test

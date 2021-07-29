@@ -1,4 +1,4 @@
-package com.ncalderon.challenges
+package com.ncalderon.challenges.warnup
 
 class JumpingOnClouds {
     /**

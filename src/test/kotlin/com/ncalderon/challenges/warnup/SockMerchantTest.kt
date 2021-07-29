@@ -1,4 +1,4 @@
-package com.ncalderon.challenges
+package com.ncalderon.challenges.warnup
 
 import org.junit.After
 import org.junit.Before
