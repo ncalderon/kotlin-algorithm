@@ -36,33 +36,50 @@ fun rotLeft(a: Array<Int>, d: Int): Array<Int> {
 }
 
 fun minimumBribes(q: Array<Int>): Unit {
+    val chaoticThreshold = 3
     var bribeCount = 0;
     var isChaotic = false
-    var current = -1
     var currentBribeCount = 0;
+
     for (i in (q.size-1) downTo 0) {
-        if (current == -1)
-            current = i
-
-        if (q[i] == current+1){
-            currentBribeCount = current-i
-            bribeCount+= currentBribeCount
-            current = -1
+        currentBribeCount = q[i] - (i+1)
+        if (currentBribeCount < 0)
+            currentBribeCount = 0
+        if (currentBribeCount >= chaoticThreshold){
+            isChaotic = true
+            break
         }
-
-        if (currentBribeCount >= 3){
-            isChaotic = true;
-            break;
-        }
+        bribeCount += currentBribeCount
     }
 
     if (!isChaotic){
-        bribeCount+=bribeCount
         println(bribeCount)
     }
     else
         println("Too chaotic")
 }
+
+//        currentBribeCount = 0
+//        for (j in i downTo 0){
+//            if (q[j] == i+1 || q[i] > j)
+//                break
+//            currentBribeCount+= 1
+//
+//            if (currentBribeCount >= chaoticThreshold){
+//                isChaotic = true;
+//                break;
+//            }
+//        }
+//        bribeCount += currentBribeCount
+
+/*private fun countBribe(currentIdx: Int, q: Array<Int>): Int {
+    if (currentIdx+1 == q[i]){
+        return q[i]-i;
+    }
+    for (i in (q.size-1) downTo 0) {
+
+    }
+}*/
 
 //        var currentValue = q[i]
 //        if (currentValue == i)

@@ -67,9 +67,11 @@ internal class ArraysKtTest {
 
     @Test
     fun minimumBribesTest(){
-        minimumBribes(arrayOf(1, 2, 5, 3, 7, 8, 6, 4))
-//        minimumBribes(arrayOf(2, 1, 5, 3, 4))
-//        minimumBribes(arrayOf(2, 5, 1, 3, 4))
+        minimumBribes(arrayOf(1, 2, 5, 3, 7, 8, 6, 4)) // 7
+        minimumBribes(arrayOf(2, 1, 5, 3, 4)) // 3
+        minimumBribes(arrayOf(1, 2, 5, 3, 7, 8, 6, 4)) // 8
+        minimumBribes(arrayOf(2, 1, 5, 3, 4)) // 3
+        minimumBribes(arrayOf(2, 5, 1, 3, 4)) // Too chaotic
 
     }
 }
