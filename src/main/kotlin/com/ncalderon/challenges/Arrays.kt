@@ -1,5 +1,7 @@
 package com.ncalderon.challenges
 
+import kotlin.math.max
+
 const val max_rows = 6
 const val max_columns = 6
 
@@ -38,57 +40,21 @@ fun rotLeft(a: Array<Int>, d: Int): Array<Int> {
 fun minimumBribes(q: Array<Int>): Unit {
     val chaoticThreshold = 3
     var bribeCount = 0;
-    var isChaotic = false
-    var currentBribeCount = 0;
 
-    for (i in (q.size-1) downTo 0) {
-        currentBribeCount = q[i] - (i+1)
-        if (currentBribeCount < 0)
-            currentBribeCount = 0
-        if (currentBribeCount >= chaoticThreshold){
-            isChaotic = true
-            break
+    val qAsIdx = q.map { i -> i-1 }
+
+    for ((idx, p) in qAsIdx.withIndex()){
+        if (p - idx >= chaoticThreshold){
+            println("Too chaotic")
+            return
         }
-        bribeCount += currentBribeCount
+
+        for (j in max(p-1, 0) until idx){
+            if (qAsIdx[j] > p)
+                bribeCount++
+        }
     }
 
-    if (!isChaotic){
-        println(bribeCount)
-    }
-    else
-        println("Too chaotic")
+    println(bribeCount)
 }
 
-//        currentBribeCount = 0
-//        for (j in i downTo 0){
-//            if (q[j] == i+1 || q[i] > j)
-//                break
-//            currentBribeCount+= 1
-//
-//            if (currentBribeCount >= chaoticThreshold){
-//                isChaotic = true;
-//                break;
-//            }
-//        }
-//        bribeCount += currentBribeCount
-
-/*private fun countBribe(currentIdx: Int, q: Array<Int>): Int {
-    if (currentIdx+1 == q[i]){
-        return q[i]-i;
-    }
-    for (i in (q.size-1) downTo 0) {
-
-    }
-}*/
-
-//        var currentValue = q[i]
-//        if (currentValue == i)
-//            continue
-//        else if (currentValue == i+2)
-//            bribeCount++
-//        else if (currentValue == i+3)
-//            bribeCount+=2
-//        else {
-//            isChaotic = true;
-//            break;
-//        }
