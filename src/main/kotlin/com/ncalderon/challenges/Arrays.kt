@@ -37,24 +37,103 @@ fun rotLeft(a: Array<Int>, d: Int): Array<Int> {
     return result
 }
 
+val matchArrayValueToIndices = { arr: Array<Int> -> arr.map { i -> i - 1 }.toTypedArray() }
+
 fun minimumBribes(q: Array<Int>): Unit {
     val chaoticThreshold = 3
     var bribeCount = 0;
 
-    val qAsIdx = q.map { i -> i-1 }
+    val qAsIdx = q.map { i -> i - 1 }
 
-    for ((idx, p) in qAsIdx.withIndex()){
-        if (p - idx >= chaoticThreshold){
+    for ((idx, p) in qAsIdx.withIndex()) {
+        if (p - idx >= chaoticThreshold) {
             println("Too chaotic")
             return
         }
 
-        for (j in max(p-1, 0) until idx){
+        for (j in max(p - 1, 0) until idx) {
             if (qAsIdx[j] > p)
                 bribeCount++
         }
     }
 
     println(bribeCount)
+}
+
+//private fun swap(arr: Array<Int>, idx: Int): Int {
+//    val currentValue = arr[idx]
+//    if (currentValue == idx)
+//        return 0;
+//    else {
+//        for ((idx, value) in newArr.withIndex()){
+//            if (idx != value)
+//        }
+//    }
+//
+//
+//}
+
+fun isSorted(arr: Array<Int>): Boolean {
+    for (i in 0 until arr.size-1){
+        if (arr[i+1] - arr[i] != 1)
+            return false;
+    }
+    return true;
+}
+
+fun minimumSwaps(arr: Array<Int>): Int {
+    var count = 0
+    val currentArr = matchArrayValueToIndices(arr)
+
+    for (i in currentArr.indices){
+        while(currentArr[i] != i){
+            val temp = currentArr[i]
+            currentArr[i] = currentArr[temp-1]
+            currentArr[temp-1] = temp
+            count++
+        }
+        println(currentArr.toList())
+    }
+
+    return count;
+
+
+//    print(arr.sliceArray(listOf(3, 1, 2, 0, 4, 5, 6)).toList())
+//    return 1
+//    for ((idx, value) in newArr.withIndex()){
+//        if (idx == value)
+//            continue
+//
+//        for (j in idx until newArr.size-1){
+//            if (newArr[j]-newArr[j+1]<0)
+//                return 1 + swap(newArr.slice())
+//        }
+//    }
+}
+
+fun solutionA(A: IntArray): Int {
+    var smallestPositiveInteger = -1
+    var sortedA = A.sortedArray()
+    for (i in 0 until sortedA.size-1) {
+        val current = sortedA[i]
+        val nextCurrent = sortedA[i+1]
+        if(current < 0)
+            continue
+
+        if (nextCurrent-current > 1) {
+            smallestPositiveInteger = current + 1
+            break
+        }
+    }
+
+    return if (smallestPositiveInteger < 0){
+        var largestPositiveInteger = sortedA[sortedA.size-1]
+        if (largestPositiveInteger < 0)
+            1
+        else
+            largestPositiveInteger+1
+    } else {
+        smallestPositiveInteger
+    }
 }
 

@@ -1,5 +1,6 @@
 package com.ncalderon.challenges
 
+import com.ncalderon.elementals.gridTraveler
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -72,6 +73,43 @@ internal class ArraysKtTest {
         minimumBribes(arrayOf(1, 2, 5, 3, 7, 8, 6, 4)) // 7
         minimumBribes(arrayOf(2, 1, 5, 3, 4)) // 3
         minimumBribes(arrayOf(2, 5, 1, 3, 4)) // Too chaotic
+    }
 
+    @Test
+    fun minimumSwapsTest(){
+        minimumSwaps(arrayOf(7, 1, 3, 2, 4, 5, 6))
+    }
+
+    @Test
+    fun solutionATest(){
+//        assertEquals(5,
+//            solutionA(intArrayOf(1, 3, 6, 4, 1, 2)))
+//
+//        assertEquals(6,
+//            solutionA(intArrayOf(1, 3, 5, 4, 1, 2)))
+
+        assertEquals(1,
+            solutionA(intArrayOf(-1, -1, -2, -5, 5, 6, 8)))
+
+        assertEquals(1,
+            solutionA(intArrayOf(-1, -1, -2)))
+    }
+
+    @Test
+    fun gridTravelerTest(){
+//        assertEquals(
+//            3,
+//            gridTraveler(2,3)
+//        )
+//
+//        assertEquals(
+//            6,
+//            gridTraveler(3,3)
+//        )
+
+        assertEquals(
+            "2333606220",
+            gridTraveler(18,18).toString()
+        )
     }
 }
