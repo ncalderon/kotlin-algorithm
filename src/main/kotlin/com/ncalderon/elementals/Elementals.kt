@@ -1,7 +1,6 @@
 package com.ncalderon.elementals
 
 import java.math.BigInteger
-import kotlin.math.min
 
 fun binarySearch(arr: IntArray, l: Int, r: Int, x: Int): Int {
     if (r < l)
@@ -34,6 +33,8 @@ fun gridTraveler (m: Int, n: Int, memo: MutableMap<String, BigInteger> = mutable
 
 fun segment(x: Int, space: Array<Int>): Int {
      val n = space.size
+
+    var list = mutableListOf<Int>()
      var maximum = 0
      for (i in 0 .. n-x){
          val segment = space.sliceArray(i until i+x)

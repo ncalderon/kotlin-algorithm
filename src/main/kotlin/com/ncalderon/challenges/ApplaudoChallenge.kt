@@ -4,13 +4,15 @@ package com.ncalderon.challenges
 fun fizzBuzz(n: Int): Unit {
     // Write your code here
     for (i in 1 .. n){
-        if (n % 3 == 0 && n % 5 == 0)
-            println("FizzBuzz")
-        else if (n % 3 == 0 && n % 5 != 0)
-            println("Fizz")
-        else if (n % 3 != 0 && n % 5 != 0)
-            println("Buzz")
+        val sb = StringBuilder();
+        if (n % 3 == 0)
+            sb.append("Fizz")
+        if (n % 5 == 0)
+            sb.append("Fizz")
+
+        if (sb.isNotEmpty())
+            println(sb.toString())
         else
-            println(n)
+            println(i)
     }
 }
