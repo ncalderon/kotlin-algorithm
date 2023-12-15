@@ -34,8 +34,4 @@ fun compareWords(word: ByteArray, anotherWord: ByteArray): String {
 
 fun main() {
     val words = listOf("aaa", "aaat", "tat", "att", "taaa", "aatt", "tata", "ttaa");
-
-    for (1 in ) {
-
-    }
 }
