@@ -22,15 +22,15 @@ import java.util.LinkedList
 }*/
 
 
-fun compareWords(word: ByteArray, anotherWord: ByteArray): String {
-    word.sort();
-    anotherWord.sort();
-    if (word.contentEquals(anotherWord)) {
-        return word
-    } else {
-        return "";
-    }
-}
+//fun compareWords(word: ByteArray, anotherWord: ByteArray): String {
+//    word.sort();
+//    anotherWord.sort();
+//    if (word.contentEquals(anotherWord)) {
+//        return word;
+//    } else {
+//        return "";
+//    }
+//}
 
 fun main() {
     val words = listOf("aaa", "aaat", "tat", "att", "taaa", "aatt", "tata", "ttaa");

@@ -56,7 +56,5 @@ public class IovlabsChallenge {
         assert solution("a?n?").equals("anna");
         assert solution("a?").equals("aa");
         assert solution("a").equals("a");
-
-
     }
 }
